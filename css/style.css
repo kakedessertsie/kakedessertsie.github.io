@@ -1,0 +1,317 @@
+:root {
+  --peach-light: #f5c6a5;
+  --peach-medium: #d48b6a;
+  --peach-dark: #a2613b;
+  --cream: #fff7f0;
+  --gray-dark: #333;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Baloo 2', cursive;
+  background: var(--cream);
+  color: var(--gray-dark);
+  scroll-behavior: smooth;
+}
+
+/* HEADER & NAV */
+header {
+  position: fixed;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 100;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+  height: 40px;
+}
+
+nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav a {
+  text-decoration: none;
+  font-family: 'Baloo 2', cursive;
+  font-weight: 500;
+  color: var(--gray-dark);
+  transition: color 0.3s;
+}
+nav a:hover {
+  color: var(--peach-medium);
+}
+
+/* ─── HAMBURGER BUTTON ───────────────────────────────────────────────────── */
+#menu-btn {
+  display: none;                /* shown only on mobile */
+  position: relative;
+  width: 30px; height: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 200;                 /* above header/nav */
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#menu-btn .bar {
+  display: block;
+  width: 100%; height: 3px;
+  background: var(--gray-dark);
+  border-radius: 3px;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+#menu-btn.active .bar:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+#menu-btn.active .bar:nth-child(2) {
+  opacity: 0;
+}
+#menu-btn.active .bar:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* ─── MOBILE NAV ─────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* show button */
+  #menu-btn {
+    display: flex;
+  }
+
+  /* slide-in panel */
+  nav {
+    position: fixed;
+    top: 0; right: -100%;
+    width: 250px; height: 100vh;
+    background: var(--cream);
+    flex-direction: column;
+    align-items: center;
+    padding-top: 4rem;
+    transition: right 0.4s ease;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+    z-index: 180;
+  }
+  nav.open {
+    right: 0;
+  }
+
+  nav a {
+    margin: 1.5rem 0;
+    font-size: 1.3rem;
+  }
+}
+
+
+/* ─── HERO REPLACEMENT ───────────────────────────────────────────────────── */
+.hero {
+  position: relative;
+  height: 90vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: url('../assets/images/hero2.jpeg') center/cover no-repeat fixed;
+  filter: brightness(0.5);
+  animation: zoom 20s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes zoom {
+  0%,100%   { transform: scale(1); }
+  50%       { transform: scale(1.1); }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #fff;
+  padding: 0 1rem;
+}
+
+.hero-content h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: 4rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+}
+
+.hero-content .highlight {
+  background: var(--peach-light);
+  color: var(--peach-dark);
+  padding: 0.2em 0.6em;
+  border-radius: 999px;
+  display: inline-block;
+}
+
+.hero-content p {
+  font-family: 'Baloo 2', cursive;
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+}
+
+/* ─── ICON-ONLY BUTTONS ─────────────────────────────────────────────────── */
+.order-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  margin: 0 0.5rem;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.8);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.order-icon {
+  width: 32px;
+  height: 32px;
+}
+
+/* Brand-colored hover states */
+.order-btn.just-eat:hover {
+  background: #ffc701;      /* Just Eat yellow */
+  transform: scale(1.1);
+}
+.order-btn.deliveroo:hover {
+  background: #00ccbc;      /* Deliveroo teal */
+  transform: scale(1.1);
+}
+
+
+/* ─── STANDARDIZE ALL GRID IMAGES ───────────────────────────────────────── */
+.menu-grid img,
+.standard-img {
+  width: 100%;              /* fill the grid cell */
+  height: 220px;            /* fixed uniform height */
+  object-fit: cover;        /* crop to fill without distortion */
+  border-radius: 10px;      /* match your card styling */
+  display: block;           /* remove any inline gaps */
+}
+
+
+
+
+/* SECTIONS */
+section {
+  padding: 3rem 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+h2 {
+  font-family: 'Pacifico', cursive;
+  font-size: 2.5rem;
+  color: var(--peach-dark);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.lead {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* MENU & GALLERY GRID */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.bowl-card {
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s;
+}
+.bowl-card:hover {
+  transform: translateY(-5px);
+}
+.bowl-card img {
+  width: 100%;
+  display: block;
+}
+.bowl-info {
+  padding: 1rem;
+}
+.bowl-info h3 {
+  font-size: 1.25rem;
+  color: var(--peach-medium);
+  margin-bottom: 0.5rem;
+}
+.bowl-info p {
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+}
+.price {
+  font-weight: 500;
+  color: var(--peach-dark);
+}
+
+/* SOCIAL & CONTACT */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+.contact-info {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.9rem;
+  color: var(--gray-dark);
+}
+
+/* MOBILE NAV */
+@media (max-width: 768px) {
+  #menu-btn {
+    display: flex;
+  }
+  nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100%;
+    width: 200px;
+    background: var(--cream);
+    flex-direction: column;
+    align-items: center;
+    padding-top: 4rem;
+    transition: right 0.3s;
+  }
+  nav.open {
+    right: 0;
+  }
+  nav a {
+    margin: 1rem 0;
+    font-size: 1.2rem;
+  }
+}
