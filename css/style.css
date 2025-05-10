@@ -121,7 +121,8 @@ nav a:hover {
 /* ─── HERO REPLACEMENT ───────────────────────────────────────────────────── */
 .hero {
   position: relative;
-  height: 90vh;
+  min-height: 90vh;
+  max-height: 90vh;
   overflow: hidden;
   display: flex;
   align-items: center;
