@@ -320,3 +320,7 @@ footer {
     font-size: 1.2rem;
   }
 }
+
+.glf-button{
+  background-color: var(--peach-medium) !important;
+}
