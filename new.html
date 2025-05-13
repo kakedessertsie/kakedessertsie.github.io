@@ -275,7 +275,7 @@
     }
     
     .order-btn.deliveroo:hover {
-      background: #00ccbc;
+      background: #00f7ff;
       transform: translateY(-5px);
     }
     
@@ -574,6 +574,32 @@
         grid-template-columns: 1fr;
       }
     }
+
+    .footer-credit {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+  
+  .footer-credit a {
+    color: var(--primary);
+    transition: var(--transition);
+  }
+  
+  .footer-credit a:hover {
+    color: var(--primary-dark);
+  }
+  
+  .footer-insta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 2px;
+  }
   </style>
 </head>
 <body>
@@ -602,7 +628,7 @@
       <div class="order-buttons">
         <div>
         <a href="#" class="collection-btn" data-glf-cuid="3414e58d-34d7-4600-97a1-d9a3b291aaf1" data-glf-ruid="e7974de0-8a37-4d28-af11-6e433fb01444">
-          <i class="fas fa-store fa-fw"></i>Order Collection
+          <i class="fas fa-store fa-fw"></i>Order Collection (Cash)
         </a>
         </div>
         <div class="order-btn-group">
@@ -668,7 +694,7 @@
           <div class="menu-item-info">
             <h3 class="menu-item-title">Acai Bowls</h3>
             <p class="menu-item-desc">Berry, mango or dragonfruit base with toppings and sauce!</p>
-            <div class="menu-item-price">€10.00</div>
+            <div class="menu-item-price"><a href="#home">€10.00 - Order now</a></div>
           </div>
         </div>
         
@@ -679,7 +705,7 @@
           <div class="menu-item-info">
             <h3 class="menu-item-title">Dessert Trays</h3>
             <p class="menu-item-desc">Cookie or Brownie base with toppings and sauce!</p>
-            <div class="menu-item-price">€8.50</div>
+            <div class="menu-item-price"><a href="#home">€8.50 - Order now</a></div>
           </div>
         </div>
         
@@ -690,7 +716,7 @@
           <div class="menu-item-info">
             <h3 class="menu-item-title">Hot Chocolate</h3>
             <p class="menu-item-desc">Choose from Kinder, Mint, Flake and more!</p>
-            <div class="menu-item-price">€4.50</div>
+            <div class="menu-item-price"><a href="#home">€4.50 - Order now</a></div>
           </div>
         </div>
       </div>
@@ -720,7 +746,13 @@
 
   <footer>
     <div class="container">
-      <p class="footer-text">&copy; 2025 Kake Desserts. All rights reserved.</p>
+      <p class="footer-text">&copy; <span id="currentYear"></span> Kake Desserts. All rights reserved.</p>
+      <p class="footer-credit">Made with <i class="fas fa-heart" style="color: var(--primary);"></i> by 
+        <a href="https://jumpseo.ie" target="_blank" rel="noopener">JumpSEO</a>
+        <a href="https://instagram.com/jump.seo" target="_blank" rel="noopener" class="footer-insta">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+      </p>
     </div>
   </footer>
 
@@ -728,6 +760,11 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script src="https://www.fbgcdn.com/embedder/js/ewm2.js" defer async></script>
   
+  <script>
+    // Set current year in footer
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+  </script>
+
   <script>
     // Initialize AOS animation library
     document.addEventListener('DOMContentLoaded', function() {
