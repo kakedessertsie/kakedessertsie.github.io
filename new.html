@@ -20,6 +20,19 @@
   <meta property="og:image" content="https://www.kakedesserts.ie" />
   <meta property="og:url" content="https://www.kakedesserts.ie" />
 
+  <script>
+    // Set a CSS variable with the initial viewport height
+    function setInitialHeight() {
+      // Get the initial viewport height
+      let vh = window.innerHeight * 0.01;
+      // Set it as a CSS variable
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
+    
+    // Run once on page load
+    window.addEventListener('DOMContentLoaded', setInitialHeight);
+  </script>
+
   <!-- Google Fonts -->
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
@@ -199,6 +212,16 @@
       background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('assets/images/hero2.jpeg') center/cover no-repeat fixed;
     }
 
+    @media (max-width: 768px) {
+    .hero {
+      background-size: cover;
+      background-position: center center;
+      background-attachment: scroll; /* Change from fixed to scroll on mobile */
+      height: calc(100 * var(--vh, 1vh));
+    }
+  }
+  
+
     .hero-content {
       position: relative;
       z-index: 10;
@@ -215,7 +238,6 @@
       opacity: 0;
       transform: translateY(20px);
       animation: fadeInUp 1s ease forwards 0.5s;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
     }
 
     .hero-content span {
@@ -614,6 +636,7 @@
         <span class="bar"></span>
       </button>
       <nav id="nav-links" class="nav-links">
+        <a href="#home" class="nav-link">Order Now</a>
         <a href="#about" class="nav-link">Our Story</a>
         <a href="#menu" class="nav-link">Menu</a>
         <a href="#contact" class="nav-link">Contact</a>
@@ -729,7 +752,7 @@
         <h3 class="section-subtitle">Get In Touch</h3>
         <h2 class="section-title">Contact & Follow Us</h2>
         <p class="section-description">
-          Follow us for updates, promotions, and delicious food inspiration!
+          Follow us for updates, promotions, and delicious dessert inspiration!
         </p>
       </div>
       
