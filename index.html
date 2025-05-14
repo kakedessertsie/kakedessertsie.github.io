@@ -619,30 +619,111 @@
       }
     }
 
-    .footer-credit {
+    footer {
+    background-color: var(--white);
+    padding: 40px 0 30px;
+    text-align: center;
+  }
+
+  .footer-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .footer-text {
     color: var(--text-light);
-    font-size: 0.9rem;
-    margin-top: 8px;
+    font-size: 0.95rem;
+  }
+
+  .footer-divider {
+    width: 80px;
+    height: 2px;
+    background-color: var(--primary-light);
+    margin: 5px auto;
+  }
+
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .designed-by {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    letter-spacing: 0.5px;
+  }
+
+  .brand-link {
+    display: inline-flex;
+    align-items: center;
+    transition: var(--transition);
+  }
+
+  .brand-name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--primary);
+    letter-spacing: 0.5px;
+  }
+
+  .brand-link:hover .brand-name {
+    color: var(--primary-dark);
+  }
+
+  .footer-tagline {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    letter-spacing: 1px;
+    margin-top: 3px;
+  }
+
+  .footer-social {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+  }
+
+  .social-link-sm {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 5px;
+    width: 32px;
+    height: 32px;
+    background: var(--secondary);
+    border-radius: 50%;
+    transition: var(--transition);
   }
-  
-  .footer-credit a {
+
+  .social-link-sm i {
+    font-size: 0.9rem;
     color: var(--primary);
     transition: var(--transition);
   }
-  
-  .footer-credit a:hover {
-    color: var(--primary-dark);
+
+  .social-link-sm:hover {
+    background: var(--primary);
+    transform: translateY(-3px);
   }
-  
-  .footer-insta {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 2px;
+
+  .social-link-sm:hover i {
+    color: var(--white);
+  }
+
+  @media (min-width: 768px) {
+    .footer-main {
+      flex-direction: column;
+      gap: 25px;
+    }
+    
+    .footer-divider {
+      width: 100px;
+    }
   }
   </style>
 </head>
@@ -793,13 +874,24 @@
 
   <footer>
     <div class="container">
-      <p class="footer-text">&copy; <span id="currentYear"></span> Kake Desserts</p>
-      <p class="footer-credit">Made with <i class="fas fa-heart" style="color: var(--primary);"></i> by 
-        <a href="https://jumpseo.ie" target="_blank" rel="noopener">JumpSEO Media</a>
-        <a href="https://instagram.com/jump.seo" target="_blank" rel="noopener" class="footer-insta">
-          <i class="fa-brands fa-instagram"></i>
-        </a>
-      </p>
+      <div class="footer-main">
+        <p class="footer-text">&copy; <span id="currentYear"></span> Kake Desserts</p>
+        
+        <div class="footer-divider"></div>
+        
+        <div class="footer-brand">
+          <span class="designed-by">Designed & Developed by</span>
+          <a href="https://jumpseo.ie" target="_blank" rel="noopener" class="brand-link">
+            <span class="brand-name">JumpSEO Media</span>
+          </a>
+          <span class="footer-tagline">Web Design • Digital Marketing • SEO</span>
+          <div class="footer-social">
+            <a href="https://facebook.com/jump.seo" target="_blank" rel="noopener" class="social-link-sm">
+              <i class="fa-brands fa-facebook"></i>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </footer>
 
