@@ -518,18 +518,6 @@
       transition: var(--transition);
     }
 
-    /* FOOTER */
-    footer {
-      background-color: var(--white);
-      padding: 40px 0;
-      text-align: center;
-    }
-
-    .footer-text {
-      color: var(--text-light);
-      font-size: 0.9rem;
-    }
-
     /* MOBILE STYLES */
     @media (max-width: 992px) {
       .section-title {
@@ -657,9 +645,13 @@
     letter-spacing: 0.5px;
   }
 
-  .brand-link {
-    display: inline-flex;
+  .brand-with-social {
+    display: flex;
     align-items: center;
+    gap: 8px;
+  }
+
+  .brand-link {
     transition: var(--transition);
   }
 
@@ -675,24 +667,12 @@
     color: var(--primary-dark);
   }
 
-  .footer-tagline {
-    font-size: 0.75rem;
-    color: var(--text-light);
-    letter-spacing: 1px;
-    margin-top: 3px;
-  }
-
-  .footer-social {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 10px;
-  }
-
-  .social-link-sm {
+  .insta-link {
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 1rem;
+    color: var(--primary);
     width: 32px;
     height: 32px;
     background: var(--secondary);
@@ -700,19 +680,16 @@
     transition: var(--transition);
   }
 
-  .social-link-sm i {
-    font-size: 0.9rem;
-    color: var(--primary);
-    transition: var(--transition);
+  .insta-link:hover {
+    color: var(--primary-dark);
+    transform: translateY(-2px);
   }
 
-  .social-link-sm:hover {
-    background: var(--primary);
-    transform: translateY(-3px);
-  }
-
-  .social-link-sm:hover i {
-    color: var(--white);
+  .footer-tagline {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    letter-spacing: 1px;
+    margin-top: 3px;
   }
 
   @media (min-width: 768px) {
@@ -725,6 +702,7 @@
       width: 100px;
     }
   }
+
   </style>
 </head>
 <body>
@@ -881,15 +859,15 @@
         
         <div class="footer-brand">
           <span class="designed-by">Designed & Developed by</span>
-          <a href="https://jumpseo.ie" target="_blank" rel="noopener" class="brand-link">
-            <span class="brand-name">JumpSEO Media</span>
-          </a>
-          <span class="footer-tagline">Web Design • Digital Marketing • SEO</span>
-          <div class="footer-social">
-            <a href="https://facebook.com/jump.seo" target="_blank" rel="noopener" class="social-link-sm">
-              <i class="fa-brands fa-facebook"></i>
+          <div class="brand-with-social">
+            <a href="https://jumpseo.ie" target="_blank" rel="noopener" class="brand-link">
+              <span class="brand-name">JumpSEO Media</span>
+            </a>
+            <a href="https://instagram.com/jump.seo" target="_blank" rel="noopener" class="insta-link">
+              <i class="fa-brands fa-instagram"></i>
             </a>
           </div>
+          <span class="footer-tagline">Web Design • Digital Marketing • SEO</span>
         </div>
       </div>
     </div>
